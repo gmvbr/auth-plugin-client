@@ -1,4 +1,3 @@
-/* eslint-disable node/no-unpublished-import */
 import {FastifyReply, FastifyRequest} from 'fastify';
 
 abstract class AuthModel {
