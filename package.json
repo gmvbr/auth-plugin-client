@@ -15,7 +15,7 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "mocha": "mocha --require ts-node/register 'test/**/*.test.ts'",
+    "mocha": "TS_NODE_PROJECT='test/tsconfig.json' mocha --require ts-node/register 'test/**/*.test.ts'",
     "test": "nyc --reporter=lcov --reporter=text-summary npm run mocha",
     "posttest": "npm run lint"
   },
