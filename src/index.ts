@@ -18,13 +18,7 @@ export enum ListError {
 }
 
 export interface PluginOptions {
-  /**
-   * Tratamento de erros
-   */
   error?: AuthError | undefined;
-  /**
-   * Modelo da autentificação
-   */
   auth: AuthModel | undefined;
 }
 
@@ -32,11 +26,6 @@ export interface Configuration {
   authentication?: boolean;
 }
 
-/**
- * Verifica as opções passada no plugin
- *
- * @param options Opções do plugin
- */
 export function checkOptions(options: PluginOptions): PluginOptions {
   if (options.auth === undefined) {
     throw new Error(ListError.authNull);
@@ -53,11 +42,6 @@ export function checkOptions(options: PluginOptions): PluginOptions {
   return options;
 }
 
-/**
- * Valida a autentificação
- *
- * @param fastify Instância do fastify
- */
 function preValidation(fastify: FastifyInstance) {
   fastify.addHook<{}, Configuration>(
     'preValidation',
